@@ -1,4 +1,4 @@
-name: deploy helm chart to EKS
+name: Deploy Helm Chart to EKS
 
 on:
     push:
@@ -18,10 +18,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+ 
+      - name: Create kubeconfig
+        run: |
+          mkdir ${HOME}/.kube
+          echo $ {{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
 
-      - name: helm deploy
-        uses: koslib/helm-eks-action@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        with:
+      - name: deploy to eks
+        run: |
           command: helm upgrade nginx-app nginx-service-mesh --install --wait 
