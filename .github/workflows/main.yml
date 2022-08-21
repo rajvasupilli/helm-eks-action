@@ -29,10 +29,8 @@ jobs:
         run: |
           cd ${HOME}
           mkdir -p ${HOME}/.kube
-          ls -la ${HOME}
-          which echo
-          /usr/bin/echo ${{ secrets.KUBE_CONFIG }}
           /usr/bin/echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+          chmod 400 ${HOME}/.kube/config
 
       - name: deploy to eks
         run: |
