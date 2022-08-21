@@ -24,7 +24,7 @@ jobs:
           cd ${HOME}
           mkdir -p ${HOME}/.kube
           ls -la ${HOME}
-          cat ${{ secrets.KUBE_CONFIG }}
+          echo ${{ secrets.KUBE_CONFIG }}
           echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
 
       - name: deploy to eks
