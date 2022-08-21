@@ -35,6 +35,6 @@ jobs:
       - name: deploy to eks
         run: |
           which helm
-          kubectl get pods
+          kubectl get pods --all-namespaces
           helm upgrade nginx-app nginx-service-mesh --install --wait 
 
