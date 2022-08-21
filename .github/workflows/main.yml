@@ -24,6 +24,7 @@ jobs:
           cd ${HOME}
           mkdir -p ${HOME}/.kube
           ls -la ${HOME}
+          which echo
           echo ${{ secrets.KUBE_CONFIG }}
           echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
 
