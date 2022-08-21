@@ -25,4 +25,4 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
           plugins: "https://github.com/jkroepke/helm-secrets" # optional
-          command: helm upgrade nginx-app --install --wait  -f <path to values.yaml>
+          command: helm upgrade nginx-app --install --wait  -f nginx-service-mesh
