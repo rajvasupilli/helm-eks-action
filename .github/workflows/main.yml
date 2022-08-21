@@ -23,7 +23,7 @@ jobs:
         run: |
           cd ${HOME}
           mkdir -p ${HOME}/.kube
-          ls -l ${HOME}
+          ls -la ${HOME}
           cat ${{ secrets.KUBE_CONFIG }}
           echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
 
