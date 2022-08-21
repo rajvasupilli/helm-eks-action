@@ -38,3 +38,4 @@ jobs:
         run: |
           which helm
           helm upgrade nginx-app nginx-service-mesh --install --wait 
+
