@@ -1,4 +1,4 @@
-name: deploy
+name: deploy helm chart to EKS
 
 on:
     push:
@@ -24,4 +24,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          command: helm upgrade nginx-app --install --wait 
+          command: helm upgrade nginx-app nginx-service-mesh --install --wait 
